@@ -4,11 +4,17 @@ function Toggle(props) {
   const [isToggleOn, setIsToggleOn] = React.useState(false);
   const style = {
     on: {
-      backgroundColor: "green"
+      backgroundColor: "green",
+      outlineStyle: 'none',
+      borderRadius: '5px',
     },
     off: {
-      backgroundColor: "grey"
-    }
+      backgroundColor: "grey",
+      outlineStyle: 'none',
+      borderRadius: '5px',
+    },
+
+
   };
 
   useEffect(() => {
@@ -16,10 +22,11 @@ function Toggle(props) {
   }, [isToggleOn]);
 
   return (
-    <div>
+    <div style = {{padding: '10px', width: '10%', outlineStyle: 'none'}}>
         <button
           onClick={() => setIsToggleOn(!isToggleOn)}
           style={isToggleOn ? style.on : style.off}
+        
         >
           {isToggleOn ? "ON" : "OFF"}
         </button>
