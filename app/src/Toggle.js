@@ -13,8 +13,6 @@ function Toggle(props) {
       outlineStyle: 'none',
       borderRadius: '5px',
     },
-
-
   };
 
   useEffect(() => {
