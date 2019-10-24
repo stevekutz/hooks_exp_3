@@ -63,23 +63,35 @@ const MyCheckbox = (thingy, data, checked) => {
 
 const alignStyles = {width: '80%', margin: '5px auto', padding: '5px', display: 'flex'}                    
 const cardStyles = {border: '1px solid deeppink', color: 'dodgerblue', ...alignStyles}
+const labelContainer = {border: '1px solid dodgerblue'}
+const labelStyles = {width: '15px', display: 'flex'}
 
-function App({isSlideOn, toggleTracker}) {
+function App() {
 
   const arr = ['first', 'second', 'third'];
+  const [toggleTracker, setToggleTracker] = useGlobal('toggleTracker');
 
   return (
-    <div style = {cardStyles}>
-      <Toggle />
-      {arr.map((item, index) => (
- 
-          <MyCheckbox key = {index} thingy = {item}          
-          />
+    <div>
+      <div style = {cardStyles}>
+        <Toggle />
+        {arr.map((item, index) => (
+            <MyCheckbox key = {index} thingy = {item}          
+            />
+          ))}
+          
+          
+      </div>
 
-        ))}
+      <div style = {labelContainer}>
+        {toggleTracker.map( (item, index) => (
+          <Label key = {index}> Toggle: {item.name.thingy} State: {item.state.toString()}</Label>    
+        ))}        
+      </div>
+      
 
-        
     </div>
+
   );
 }
 
