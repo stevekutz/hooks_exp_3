@@ -64,7 +64,8 @@ const MyCheckbox = (thingy, data, checked) => {
 const alignStyles = {width: '80%', margin: '5px auto', padding: '5px', display: 'flex'}                    
 const cardStyles = {border: '1px solid deeppink', color: 'dodgerblue', ...alignStyles}
 const labelContainer = {border: '1px solid dodgerblue'}
-const labelStyles = {width: '15px', display: 'flex'}
+const labelStyles = {width: '10%', margin: '5px', border: '1px solid seagreen', 
+                    backgroundColor: 'ghostwhite'}
 
 function App() {
 
@@ -83,11 +84,18 @@ function App() {
           
       </div>
 
-      <div style = {labelContainer}>
-        {toggleTracker.map( (item, index) => (
-          <Label key = {index}> Toggle: {item.name.thingy} State: {item.state.toString()}</Label>    
-        ))}        
-      </div>
+      { toggleTracker.length
+         ?
+        <div style = {labelContainer}>
+          {toggleTracker.map( (item, index) => (
+            <Label key = {index} style = {labelStyles}> Toggle: {item.name.thingy} State: {item.state.toString()}</Label>    
+          ))}        
+        </div>
+          :
+        <Label style = {{display: 'flex', width: '10%', margin: '0 auto'}} color = 'red'> no data yet </Label>     
+
+
+      }    
       
 
     </div>
