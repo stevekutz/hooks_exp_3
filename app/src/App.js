@@ -1,7 +1,7 @@
 import { useGlobal, setGlobal } from 'reactn';
 import React, { useState, useEffect} from 'react';
 import Toggle from './Toggle';
-import {Card, Checkbox, Label} from 'semantic-ui-react';
+import {Button, Card, Checkbox, Label} from 'semantic-ui-react';
 
 setGlobal({
   toggleTracker: [],
@@ -63,15 +63,23 @@ const MyCheckbox = (itemProp) => {
 
 const alignStyles = {width: '80%', margin: '5px auto', padding: '5px', display: 'flex'}                    
 const cardStyles = {border: '1px solid deeppink', color: 'dodgerblue', ...alignStyles}
-const labelContainer = {border: '1px solid dodgerblue', width: '86%', margin: '0 auto', display: 'flex', 
-              flexWrap: 'wrap', alignItems: 'flexStart', alignContent: 'center'}
-const labelStyles = {width: '12%', margin: '2px', padding: '5px', border: '1px solid seagreen', 
-                    backgroundColor: 'ghostwhite', display: 'flex', flexDirection: 'column'}
+const labelContainer = {border: '5px solid dodgerblue', width: '86%', margin: '2px auto', display: 'flex', 
+              flexWrap: 'wrap', alignItems: 'flexStart', alignContent: 'space-around'}
+const testStyles = {width: '14%', margin: '1px', padding: '2px', border: '1px solid seagreen', 
+                    backgroundColor: 'ghostwhite', display: 'flex', flexDirection: 'column', 
+                    alignContent: 'center'}
+const buttonFormat = {padding: '1px',  border: '1px solid red'}
 
 function App() {
 
   const arr = ['first', 'second', 'third'];
-  const [toggleTracker] = useGlobal('toggleTracker');
+  const [toggleTracker, setToggleTracker] = useGlobal('toggleTracker');
+
+  
+  const resetLogger = () => {
+    setToggleTracker([]);
+  }
+ 
 
   return (
     <div>
@@ -82,16 +90,23 @@ function App() {
             />
           ))}
           
-          
+        
+      <Button onClick = {resetLogger} basic color='pink' > reset toggle logger</Button>
       </div>
-
+     
       { toggleTracker.length
          ?
         <div style = {labelContainer}>
           {toggleTracker.map( (item, index) => (
-            <Card style = {labelStyles} key = {index}>
-            <Label>  Toggle: {item.name.itemProp} </Label>
-            <Label>  State: {item.state.toString()} </Label>    
+            <Card style = {testStyles} key = {index}>
+            <Card.Content>
+              <button style = {buttonFormat} >  Toggle: {item.name.itemProp} </button>  
+            </Card.Content>
+            <Card.Content>
+              <button style = {buttonFormat} >  State: {item.state.toString()} </button>    
+
+            </Card.Content>
+            
             </Card>
             ))}        
         </div>
@@ -101,7 +116,6 @@ function App() {
 
       }    
       
-
     </div>
 
   );
