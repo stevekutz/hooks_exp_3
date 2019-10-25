@@ -7,11 +7,13 @@ function Toggle(props) {
       backgroundColor: "green",
       outlineStyle: 'none',
       borderRadius: '5px',
+      width: '50px'
     },
     off: {
       backgroundColor: "grey",
       outlineStyle: 'none',
       borderRadius: '5px',
+      width: '50px'
     },
   };
 

@@ -64,11 +64,11 @@ const MyCheckbox = (itemProp) => {
 const alignStyles = {width: '80%', margin: '5px auto', padding: '5px', display: 'flex'}                    
 const cardStyles = {border: '1px solid deeppink', color: 'dodgerblue', ...alignStyles}
 const labelContainer = {border: '5px solid dodgerblue', width: '86%', margin: '2px auto', display: 'flex', 
-              flexWrap: 'wrap', alignItems: 'flexStart', alignContent: 'space-around'}
+              alignContent: 'center', flexWrap: 'wrap' }
 const testStyles = {width: '14%', margin: '1px', padding: '2px', border: '1px solid seagreen', 
-                    backgroundColor: 'ghostwhite', display: 'flex', flexDirection: 'column', 
-                    alignContent: 'center'}
-const buttonFormat = {padding: '1px',  border: '1px solid red'}
+                    backgroundColor: 'ghostwhite'}
+const divStyles = {display: 'flex', justifyContent: 'center'}
+const buttonFormat = {padding: '3px', margin: '3px',  border: '1px solid red', borderRadius: '4px'}
 
 function App() {
 
@@ -98,15 +98,13 @@ function App() {
          ?
         <div style = {labelContainer}>
           {toggleTracker.map( (item, index) => (
-            <Card style = {testStyles} key = {index}>
-            <Card.Content>
-              <button style = {buttonFormat} >  Toggle: {item.name.itemProp} </button>  
-            </Card.Content>
-            <Card.Content>
-              <button style = {buttonFormat} >  State: {item.state.toString()} </button>    
-
-            </Card.Content>
-            
+            <Card style = {testStyles} key = {index} textAlign = 'center'>
+              <div style = {divStyles}>
+                <button style = {buttonFormat} >  Toggle: {item.name.itemProp} </button>  
+              </div>
+              <div style = {divStyles}>
+                <button style = {buttonFormat} >  State: {item.state.toString()} </button>    
+              </div>            
             </Card>
             ))}        
         </div>
