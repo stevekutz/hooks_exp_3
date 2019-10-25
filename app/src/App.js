@@ -1,37 +1,37 @@
 import { useGlobal, setGlobal } from 'reactn';
 import React, { useState, useEffect} from 'react';
 import Toggle from './Toggle';
-import {Checkbox, Label} from 'semantic-ui-react';
+import {Card, Checkbox, Label} from 'semantic-ui-react';
 
 setGlobal({
   toggleTracker: [],
 })
 
-const MyCheckbox = (thingy, data, checked) => {
-  const [isSlideOn, setSlider] = React.useState(false);
+const MyCheckbox = (itemProp) => {
+  const [isSlideOn, setSlider] = useState(false);
+  //const [isSlideOn, setSlider] = React.useState(false);
   const [toggleTracker, setToggleTracker] = useGlobal('toggleTracker');
-
 
   const style = {
     on: {
       fontWeight: 'bold',
       fontColor: 'green',
-      padding: '10px',
+      padding: '5px',
 
     },
     off: {
       fontWeight: 'lighter',
       color: 'pink',
-      padding: '10px',
-    },
+      padding: '5px',
+    }, 
   };
 
-  const handleSliderValue = (data, e) => {
-    console.log('current thingy is ', thingy);
-    //console.log('current data is ', data);
+  const handleSliderValue = () => {
+    console.log('current itemProp value is ', itemProp);
+
 
     let currentToggleState = {
-      name: thingy,
+      name: itemProp,
       state: isSlideOn,
     }
 
@@ -49,10 +49,10 @@ const MyCheckbox = (thingy, data, checked) => {
       <div style = {{width: '20%'}}>
         <Checkbox 
           toggle
-          label = {thingy.thingy}
+          label = {itemProp.itemProp}
           onClick={() => setSlider(!isSlideOn)}
           onChange = {handleSliderValue}
-          name = {thingy.thingy}
+          name = {itemProp.itemProp}
           style={isSlideOn ? style.on : style.off}
         />
 
@@ -63,21 +63,22 @@ const MyCheckbox = (thingy, data, checked) => {
 
 const alignStyles = {width: '80%', margin: '5px auto', padding: '5px', display: 'flex'}                    
 const cardStyles = {border: '1px solid deeppink', color: 'dodgerblue', ...alignStyles}
-const labelContainer = {border: '1px solid dodgerblue'}
-const labelStyles = {width: '10%', margin: '5px', border: '1px solid seagreen', 
-                    backgroundColor: 'ghostwhite'}
+const labelContainer = {border: '1px solid dodgerblue', width: '86%', margin: '0 auto', display: 'flex', 
+              flexWrap: 'wrap', alignItems: 'flexStart', alignContent: 'center'}
+const labelStyles = {width: '12%', margin: '2px', padding: '5px', border: '1px solid seagreen', 
+                    backgroundColor: 'ghostwhite', display: 'flex', flexDirection: 'column'}
 
 function App() {
 
   const arr = ['first', 'second', 'third'];
-  const [toggleTracker, setToggleTracker] = useGlobal('toggleTracker');
+  const [toggleTracker] = useGlobal('toggleTracker');
 
   return (
     <div>
       <div style = {cardStyles}>
         <Toggle />
         {arr.map((item, index) => (
-            <MyCheckbox key = {index} thingy = {item}          
+            <MyCheckbox key = {index} itemProp = {item}          
             />
           ))}
           
@@ -88,11 +89,14 @@ function App() {
          ?
         <div style = {labelContainer}>
           {toggleTracker.map( (item, index) => (
-            <Label key = {index} style = {labelStyles}> Toggle: {item.name.thingy} State: {item.state.toString()}</Label>    
-          ))}        
+            <Card style = {labelStyles} key = {index}>
+            <Label>  Toggle: {item.name.itemProp} </Label>
+            <Label>  State: {item.state.toString()} </Label>    
+            </Card>
+            ))}        
         </div>
           :
-        <Label style = {{display: 'flex', width: '10%', margin: '0 auto'}} color = 'red'> no data yet </Label>     
+        <Label style = {{display: 'flex', width: '10%', margin: '0 auto', justifyContent: 'center'}} color = 'red'> no data yet </Label>     
 
 
       }    
