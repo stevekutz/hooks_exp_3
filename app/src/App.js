@@ -3,6 +3,7 @@ import React, { useState, useEffect} from 'react';
 import Toggle from './Toggle';
 import {Button, Card, Checkbox, Label} from 'semantic-ui-react';
 
+
 setGlobal({
   toggleTracker: [],
 })
@@ -63,12 +64,12 @@ const MyCheckbox = (itemProp) => {
 
 const alignStyles = {width: '80%', margin: '5px auto', padding: '5px', display: 'flex'}                    
 const cardStyles = {border: '1px solid deeppink', color: 'dodgerblue', ...alignStyles}
-const labelContainer = {border: '5px solid dodgerblue', width: '86%', margin: '2px auto', display: 'flex', 
-              alignContent: 'center', flexWrap: 'wrap' }
-const testStyles = {width: '14%', margin: '1px', padding: '2px', border: '1px solid seagreen', 
+const labelContainer = {border: '5px solid dodgerblue', width: '76%', margin: '2px auto', display: 'flex', 
+              alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-around' }
+const testStyles = {width: '14%', margin: '4px', padding: '1px', border: '1px solid seagreen', 
                     backgroundColor: 'ghostwhite'}
 const divStyles = {display: 'flex', justifyContent: 'center'}
-const buttonFormat = {padding: '3px', margin: '3px',  border: '1px solid red', borderRadius: '4px'}
+const buttonFormat = {padding: '2px', margin: '4px',  border: '1px solid red', borderRadius: '4px'}
 
 function App() {
 
@@ -98,7 +99,7 @@ function App() {
          ?
         <div style = {labelContainer}>
           {toggleTracker.map( (item, index) => (
-            <Card style = {testStyles} key = {index} textAlign = 'center'>
+            <Card style = {testStyles} key = {index}>
               <div style = {divStyles}>
                 <button style = {buttonFormat} >  Toggle: {item.name.itemProp} </button>  
               </div>
