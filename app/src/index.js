@@ -1,12 +1,17 @@
 import { setGlobal } from 'reactn';
+// import './globalState';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import addReactNDevTools from 'reactn-devtools';
+addReactNDevTools();
+
 setGlobal({
     toggleTracker: [],
+    count: 0,
 })
 
 ReactDOM.render(<App />, document.getElementById('root'));

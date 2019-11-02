@@ -1,4 +1,5 @@
 import { useGlobal, setGlobal } from 'reactn';
+// import './globalState';
 import React, { useState, useEffect} from 'react';
 import Toggle from './Toggle';
 import {Button, Card, Checkbox, Label} from 'semantic-ui-react';
@@ -12,6 +13,7 @@ const MyCheckbox = (itemProp) => {
   const [isSlideOn, setSlider] = useState(false);
   //const [isSlideOn, setSlider] = React.useState(false);
   const [toggleTracker, setToggleTracker] = useGlobal('toggleTracker');
+  const [count, setCount] = useGlobal('count');
 
   const style = {
     on: {
@@ -37,7 +39,7 @@ const MyCheckbox = (itemProp) => {
     }
 
     setToggleTracker([...toggleTracker, currentToggleState]);
-
+    setCount(count + 1);
   }
 
   useEffect(()=> {
@@ -75,10 +77,21 @@ function App() {
 
   const arr = ['first', 'second', 'third'];
   const [toggleTracker, setToggleTracker] = useGlobal('toggleTracker');
+  const [count, setCount] = useGlobal('count');
 
+  // const [toggleTracker] = useGlobal('toggleTracker');
+  // const [count] = useGlobal('count');
   
   const resetLogger = () => {
-    setToggleTracker([]);
+    setToggleTracker([]);    // this can used similarly to setGlobal
+    setCount(0);
+
+
+    // setGlobal({
+    //   toggleTracker: [],
+    //   count: 0,
+    // })
+
   }
  
 
@@ -93,6 +106,7 @@ function App() {
           
         
       <Button onClick = {resetLogger} basic color='pink' > reset toggle logger</Button>
+      <Label> {count }</Label>
       </div>
      
       { toggleTracker.length

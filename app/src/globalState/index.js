@@ -1,4 +1,4 @@
-import {setGlobal} from 'reactn';
+ import {useGlobal, setGlobal} from 'reactn';
 
 import addReactNDevTools from 'reactn-devtools';
 addReactNDevTools();
@@ -6,5 +6,6 @@ addReactNDevTools();
 export default () => {
     setGlobal({
         toggleTracker: [],
+        count: 0,
     })
 }
