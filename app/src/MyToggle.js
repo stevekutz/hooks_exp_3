@@ -1,7 +1,10 @@
-import React, {useEffect} from "react";
+// import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 
-function Toggle(props) {
-  const [isToggleOn, setIsToggleOn] = React.useState(false);
+function MyToggle(props) {
+// const [isToggleOn, setIsToggleOn] = React.useState(false);
+  const [isToggleOn, setIsToggleOn] = useState(false);
+
   const style = {
     on: {
       backgroundColor: "green",
@@ -38,4 +41,4 @@ function Toggle(props) {
   );
 }
 
-export default Toggle;
+export default MyToggle;
