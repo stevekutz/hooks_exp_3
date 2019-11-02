@@ -4,9 +4,9 @@ import Toggle from './Toggle';
 import {Button, Card, Checkbox, Label} from 'semantic-ui-react';
 
 
-setGlobal({
-  toggleTracker: [],
-})
+// setGlobal({
+//   toggleTracker: [],
+// })
 
 const MyCheckbox = (itemProp) => {
   const [isSlideOn, setSlider] = useState(false);
@@ -16,13 +16,13 @@ const MyCheckbox = (itemProp) => {
   const style = {
     on: {
       fontWeight: 'bold',
-      fontColor: 'green',
+      color: 'blue',
       padding: '5px',
 
     },
     off: {
       fontWeight: 'lighter',
-      color: 'pink',
+      fontColor: 'pink',
       padding: '5px',
     }, 
   };

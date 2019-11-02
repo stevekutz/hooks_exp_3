@@ -1,8 +1,13 @@
+import { setGlobal } from 'reactn';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+setGlobal({
+    toggleTracker: [],
+})
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
