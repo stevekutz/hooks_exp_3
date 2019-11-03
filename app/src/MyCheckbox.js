@@ -33,8 +33,11 @@ const MyCheckbox = (itemProp) => {
         state: isSlideOn,
       }
   
-      setGlobal({ toggleTracker: [...toggleTracker, currentToggleState]})
-      // setToggleTracker([...toggleTracker, currentToggleState]);
+      // using setGlobal to update global object      setGlobal({ toggleTracker: [...toggleTracker, currentToggleState]})
+      
+      // using updater function to update toggle tracker global variable
+      setToggleTracker([...toggleTracker, currentToggleState]);
+      
       setCount(count + 1);
     }
   
