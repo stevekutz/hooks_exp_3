@@ -9,29 +9,30 @@
 - ### ReactNDevTools used to track local/global state changes
 
     <div> 
-        <img style = 'margin: 10px' src = '../app/src/content/Hooks_exp_3.gif' alt = 'hooks demo GIF' width = 50%/>
+        <img style = 'margin: 10px' src = './app/src/content/Hooks_exp_3.gif' alt = 'hooks demo GIF' width = 50% />
     </div>
 
 ## Key Implementation Features
-### Each Checkbox slider manages its own state and can update the
-    ~~~ js
+### - Each Checkbox slider manages its own state and can log changes to `toggleTracker`  
+~~~ js            
     setGlobal({
         toggleTracker: [],
         count: 0,
     })
-    ~~~
-### Global state in one of two ways
-    - `setGlobal` can be used to update toggleTracker
-        ~~~ js
-        setGlobal({ toggleTracker: [...toggleTracker, currentToggleState]});
-        ~~~
+~~~            
 
-    2. The updater function declared within the `MyCheckbox` component
-    ~~~ js
+
+### Global state in one of two ways
+-  `setGlobal` can be used to update toggleTracker
+~~~js
+    setGlobal({ toggleTracker: [...toggleTracker, currentToggleState]});
+~~~
+- The updater function declared within the `MyCheckbox` component
+~~~ js
     const [toggleTracker, setToggleTracker] = useGlobal('toggleTracker');
-    ....
+    ...
     setToggleTracker([...toggleTracker, currentToggleState]);
-    ~~~
+~~~
 
 
 #### Configuration details
