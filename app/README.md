@@ -1,3 +1,39 @@
+# Hooks Experiment #3
+## Controlled components interacting with global state managed with Reactn
+
+## Hooks Implmentation Features
+- ### Button toggle state with conditionally rendered styles
+- ### Checkbox as slider using label prop 
+- ### Checkbox state appends status to glabal state and adds to count
+- ### Logged state changes rendered using layered styling to indicae last Card that was updated
+- ### ReactNDevTools used to track local/global state changes
+
+    <div> 
+        <img style = 'margin: 10px' src = '../app/src/content/Hooks_exp_3.gif' alt = 'hooks demo GIF' width = 50%/>
+    </div>
+
+## Key Implementation Features
+### Each Checkbox slider manages its own state and can update the
+    ~~~ js
+    setGlobal({
+        toggleTracker: [],
+        count: 0,
+    })
+    ~~~
+### Global state in one of two ways
+    - `setGlobal` can be used to update toggleTracker
+        ~~~ js
+        setGlobal({ toggleTracker: [...toggleTracker, currentToggleState]});
+        ~~~
+
+    2. The updater function declared within the `MyCheckbox` component
+    ~~~ js
+    const [toggleTracker, setToggleTracker] = useGlobal('toggleTracker');
+    ....
+    setToggleTracker([...toggleTracker, currentToggleState]);
+    ~~~
+
+
 #### Configuration details
 1) Set up React app `yarn create react-app app`
 
