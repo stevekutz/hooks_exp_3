@@ -111,5 +111,11 @@
         margin: '2px'; 
     }
     ~~~
+    ~~~ css
+    .card:hover{
+        background-color: deeppink;
+    }
+    ~~~
+
 
 

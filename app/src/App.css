@@ -14,3 +14,7 @@
   background-color: dodgerblue;
   margin: '2px'; 
 }
+
+.card:hover{
+  background-color:deeppink;
+}
