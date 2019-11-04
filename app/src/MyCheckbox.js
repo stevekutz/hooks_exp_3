@@ -1,5 +1,4 @@
 import { useGlobal, setGlobal } from 'reactn';
-// import './globalState';
 import React, { useState, useEffect} from 'react';
 import {Checkbox} from 'semantic-ui-react';
 
