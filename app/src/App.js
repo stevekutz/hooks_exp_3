@@ -44,7 +44,7 @@ function App() {
   },[toggleTracker])
 
   return (
-    <div class = 'app'>
+    <div className = 'app'>
       <div style = {cardStyles}>
         <Toggle />
         {arr.map((item, index) => (
@@ -60,8 +60,8 @@ function App() {
         ?
         <div style = {labelContainer}>
           {toggleTracker.map( (item, index) => (
-            <div className = 'card'  >
-            <Card style = {testStyles}  key = {index}>
+            <div className = 'card'  key = {index} >
+            <Card style = {testStyles}>
               <div style = {divStyles}>
                 <Button style = {buttonFormat} >  Toggle: {item.name.itemProp} </Button>  
               </div>

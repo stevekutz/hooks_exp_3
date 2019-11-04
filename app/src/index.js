@@ -1,5 +1,4 @@
 import { setGlobal } from 'reactn';
-// import './globalState';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

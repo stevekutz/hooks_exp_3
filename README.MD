@@ -1,5 +1,5 @@
 # Hooks Experiment #3
-## Controlled components interacting with global state managed with Reactn
+## Controlled components interacting with global state managed with ReactN
 
 ## Hooks Implmentation Features
 - ### Button toggle state with conditionally rendered styles
@@ -13,7 +13,7 @@
     </div>
 
 ## Key Implementation Features
-- Each Checkbox slider manages its own state and can log changes to the `toggleTracker` global state variable  
+### Each Checkbox slider manages its own state and can log changes to the `toggleTracker` global state variable  
     ~~~ js            
         setGlobal({
             toggleTracker: [],
@@ -23,7 +23,7 @@
 
 
 ### The Checkbox slide updates Global state using the `handleSliderValue` handler in one of two ways:
-1) `setGlobal` can be used to update toggleTracker
+1) `setGlobal` can be used to update `toggleTracker`
     ~~~js
         setGlobal({ toggleTracker: [...toggleTracker, currentToggleState]});
     ~~~
@@ -51,35 +51,40 @@
         setCount(0);
     ~~~
 
-#### Important Configuration details
-1) Set up React app `yarn create react-app app`
+## Important Configuration details
+1) ### Set up React app `yarn create react-app app`
 
-2) Add Dependencies  
- `yarn add moment react-dom react-loader-spinner react-rainbow-components react-router-dom react-scripts react-spinners-kit reactn reactn-devtools semantic-ui-react styled-components`  
+2) ### Add Dependencies  
+    `yarn add moment react-dom react-loader-spinner react-rainbow-components react-router-dom react-scripts react-spinners-kit reactn reactn-devtools semantic-ui-react styled-components`  
 
-    - note  
-        - For `react-loaded-spinner`, you must also add `styled-components`
-        - For `semantic-ui-react`, you must also 
+    - For `react-loaded-spinner`, you must also add `styled-components`
+    - For `semantic-ui-react`, you must also 
         add to `index.html`  
-            ~~~ html 
-            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm semantic-ui@2.4.2/dist/semantic.min.css" />
-            ~~~
-    - For `reactn`, you must add this as the first line of `src/index.js`
+        ~~~ html 
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm semantic-ui@2.4.2/dist/semantic.min.css" />
+        ~~~
+    - Inside of of `src/index.js`, you must add this as the first line in order to properly initialize `Global state`
         ~~~ js
         import { setGlobal } from 'reactn';
         ~~~
-    - before `ReactDOM.render` 
+        Next, add the following to access `ReactN DevTools` the `Redux DevTools extension` 
         ~~~ js
         import addReactNDevTools from 'reactn-devtools';
         addReactNDevTools();
         ~~~
+        This will allow tracking of state changes in `Chrome`
+        <div> 
+            <img style = 'margin: 10px' src = './app/src/content/ReduxReactNDevTools.png' alt = 'hooks demo GIF' width = 90% />
+        </div>
+        
+        It is recommended to initialie `Global State` before `ReactDOM.render`
         ~~~ js
         setGlobal({
             toggleTracker: [],
             count: 0,
         })
         ~~~
-3) `Inline CSS` is easy to manage and can also be combined using the `spread operator`
+3) `Inline CSS` is easy to manage and styles can also be combined using the `spread operator`. 
     ~~~ js
     const alignStyles = {width: '80%', margin: '5px auto', padding: '5px', display: 'flex', alignItems: 'center'}                    
     const cardStyles = {border: '1px solid darkslategray', borderRadius: '4px', color: 'dodgerblue', ...alignStyles}
