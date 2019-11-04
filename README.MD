@@ -90,8 +90,12 @@
     const cardStyles = {border: '1px solid darkslategray', borderRadius: '4px', color: 'dodgerblue', ...alignStyles}
     ~~~
 
+4) `Semantic UI React` props can be conditionally rendered
+~~~
+    <Button negative = {item.state} positive = {!item.state}>  State: {!item.state ? 'True' : 'False'} </Button>    
+~~~
 
-4) `Semantic React UI` props can be overriden if the component is surrounded by a simple `div` tag that has a className defined in a traditional CSS file.
+5) `Semantic UI React` props can be overridden if the component is surrounded by a simple `div` tag that has a className defined in a traditional CSS file.
     ~~~ jsx
         <div className = 'card'  >
             <Card style = {testStyles}  key = {index}>
@@ -104,7 +108,7 @@
             </Card>
         </div>
     ~~~
-    This approach allows the usage of `pseudo-selectors` such as `last-child` to show the most recent state change that was added to the global variable `toggleTracker`.
+    Using a CSS file also allows the usage of `pseudo-selectors` such as `last-child` to show the most recent state change that was added to the global variable `toggleTracker`.
     ~~~ css
     .card:last-child{
         background-color: dodgerblue;

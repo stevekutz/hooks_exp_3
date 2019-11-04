@@ -14,11 +14,12 @@ const testStyles = {width: '100px', margin: '4px', padding: '1px', border: '1px 
                     backgroundColor: 'ghostwhite', borderRadius: '4px'};
 const divStyles = {display: 'flex', justifyContent: 'center'};
 const buttonFormat = {padding: '2px', margin: '4px',  border: '1px solid red', borderRadius: '4px', outlineStyle: 'none'};
-const buttonTrue = {backgroundColor: 'green', ...buttonFormat};
-const buttonFalse = {backgroundColor: 'red', ...buttonFormat};
+const buttonTrue = {backgroundColor: 'mediumseagreen', ...buttonFormat};
+const buttonFalse = {backgroundColor: 'tomato', ...buttonFormat};
 const labelStyle = { border: 'px solid black', display: 'flex', width: '10%', margin: '0 auto', justifyContent: 'center', alignItems: 'center'};
 
-function App() {
+// const MyCheckbox = (itemProp) => {
+const App = () => {
 
   const arr = ['first', 'second', 'third'];
   const [toggleTracker, setToggleTracker] = useGlobal('toggleTracker');
@@ -66,8 +67,9 @@ function App() {
                 <Button style = {buttonFormat} >  Toggle: {item.name.itemProp} </Button>  
               </div>
               <div style = {divStyles}>
-                <Button style = {!item.state ? buttonTrue : buttonFalse} >  State: {!item.state ? 'True' : 'False'} </Button>    
-              </div>            
+                <Button negative = {item.state} positive = {!item.state}>  State: {!item.state ? 'True' : 'False'} </Button>    
+           {/*  <Button style = {!item.state ? buttonTrue : buttonFalse} >  State: {!item.state ? 'True' : 'False'} </Button> */}
+                </div>            
             </Card>
             </div>
             ))}        
@@ -87,3 +89,6 @@ export default App;
 // style={isToggleOn ? style.on : style.off}
 // <Button style = {buttonFormat}>  State: {item.state.toString()} </Button> 
 // {isToggleOn ? "ON" : "OFF"}
+
+// <Table.Cell negative={!isComplete} positive={isComplete}>
+// <Button style = {!item.state ? buttonTrue : buttonFalse} >  State: {!item.state ? 'True' : 'False'} </Button>
