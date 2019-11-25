@@ -4,7 +4,7 @@
 ## Hooks Implmentation Features
 - ### Button toggle state with conditionally rendered styles
 - ### Checkbox as slider using label prop 
-- ### Checkbox state appends status to glabal state and adds to count
+- ### Checkbox state appends status to global state and adds to count
 - ### Logged state changes rendered using layered styling to indicae last Card that was updated
 - ### ReactNDevTools used to track local/global state changes
 
@@ -55,7 +55,7 @@
 1) ### Set up React app `yarn create react-app app`
 
 2) ### Add Dependencies  
-    `yarn add moment react-dom react-loader-spinner react-rainbow-components react-router-dom react-scripts react-spinners-kit reactn reactn-devtools semantic-ui-react styled-components`  
+    `yarn add moment react-dom react-loader-spinner react-rainbow-components react-router-dom react-scripts react-spinners-kit reactn redux reactn-devtools redux        semantic-ui-react styled-components`  
 
     - For `react-loaded-spinner`, you must also add `styled-components`
     - For `semantic-ui-react`, you must also 
